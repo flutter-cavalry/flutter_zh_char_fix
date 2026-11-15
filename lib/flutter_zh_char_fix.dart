@@ -76,3 +76,30 @@ class ChineseFontFallback extends StatelessWidget {
     );
   }
 }
+
+/// Creates a `MaterialApp.builder` that wraps its child with
+/// [ChineseFontFallback].
+///
+/// Without an argument it simply wraps the app child:
+///
+/// ```dart
+/// MaterialApp(
+///   builder: chineseFontFallbackBuilder(),
+/// )
+/// ```
+///
+/// Pass an existing builder to compose it:
+///
+/// ```dart
+/// MaterialApp(
+///   builder: chineseFontFallbackBuilder(EasyLoading.init()),
+/// )
+/// ```
+TransitionBuilder chineseFontFallbackBuilder([TransitionBuilder? builder]) {
+  return (context, child) {
+    final content = child ?? const SizedBox.shrink();
+    return ChineseFontFallback(
+      child: builder?.call(context, content) ?? content,
+    );
+  };
+}

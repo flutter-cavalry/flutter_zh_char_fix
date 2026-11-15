@@ -68,14 +68,24 @@ available:
 import 'package:flutter_zh_char_fix/flutter_zh_char_fix.dart';
 
 MaterialApp(
-  builder: (context, child) => ChineseFontFallback(child: child!),
+  builder: chineseFontFallbackBuilder(),
   // ...
 );
 ```
 
-`ChineseFontFallback` is a no-op when no fix applies. If you need to apply the
-chain yourself, `chineseFontFallback(context)` returns it (or `null`), and the
-two chains are exported as constants:
+`chineseFontFallbackBuilder` composes with an existing builder when you pass
+one:
+
+```dart
+MaterialApp(
+  builder: chineseFontFallbackBuilder(_other_builder_),
+  // ...
+);
+```
+
+It is a no-op when no fix applies. If you need to apply the chain yourself,
+`chineseFontFallback(context)` returns it (or `null`), and the two chains are
+exported as constants:
 
 - `simplifiedChineseFontFallback` — Microsoft YaHei UI, YaHei, DengXian, SimHei
 - `traditionalChineseFontFallback` — Microsoft JhengHei UI, JhengHei, MingLiU, PMingLiU
