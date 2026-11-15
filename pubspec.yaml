@@ -1,0 +1,20 @@
+name: flutter_zh_char_fix
+description: "Fixes mixed Chinese/Japanese glyphs for Chinese text on Flutter Windows by pinning Chinese fallback fonts."
+version: 0.1.0
+homepage: https://github.com/flutter-cavalry/flutter_zh_char_fix
+
+environment:
+  sdk: ^3.13.7
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  is_zh: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
